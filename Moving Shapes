@@ -1,0 +1,45 @@
+
+
+import pygame
+
+pygame.init()
+
+screen_width = 2000
+screen_height = 1000
+
+
+screen = pygame.display.set_mode((screen_width,screen_height))
+
+Tamil_Nadu = True
+
+
+# bg_color = pygame.Color((255,243,0))
+bg_color = pygame.Color(('Black'))
+
+
+circle_, cicl_ = 50,50
+
+speed = 3
+
+while Tamil_Nadu:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            Tamil_Nadu = False
+
+    keys = pygame.key.get_pressed()
+
+    if keys[pygame.K_RIGHT]:
+        circle_ += speed
+    if keys[pygame.K_LEFT]:
+        circle_ -= speed
+    if keys[pygame.K_UP]:
+        cicl_ -= speed
+    if keys[pygame.K_DOWN]:
+        cicl_ += speed
+
+    screen.fill(bg_color)
+
+
+    pygame.draw.circle(screen,'red',(circle_,cicl_),20)
+
+    pygame.display.flip()
